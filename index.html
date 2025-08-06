@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kommisetty Bhargavi Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1f2d, #2c3447);
+            color: #f1f5f9;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, #9f7aea, #6b46c1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #a3bffa;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        .contact-item a {
+            color: #a3bffa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #7f9cf5;
+            text-decoration: underline;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 15px;
+            background: rgba(26, 32, 44, 0.7);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            padding: 25px;
+            background: rgba(26, 32, 44, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e2e8f0;
+            text-align: center;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: rgba(26, 32, 44, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #9f7aea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3a4151;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #a3bffa;
+            margin: 15px 0 5px;
+            font-size: 1.2rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .skill {
+            background: rgba(159, 122, 234, 0.15);
+            border: 1px solid rgba(159, 122, 234, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill i {
+            color: #9f7aea;
+        }
+
+        .experience-item, .education-item, .cert-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #3a4151;
+        }
+
+        .experience-item:last-child, .education-item:last-child, .cert-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .date {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .languages {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .language {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .stars {
+            color: #facc15;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .interest {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .achievement {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        /* 3D Cube Container */
+        .cube-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 40px auto;
+            perspective: 1000px;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 18s infinite linear;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            background: rgba(26, 32, 44, 0.9);
+            border: 2px solid rgba(159, 122, 234, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-shadow: inset 0 0 30px rgba(159, 122, 234, 0.2), 0 0 20px rgba(159, 122, 234, 0.3);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        .cube-face h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #9f7aea;
+        }
+
+        .cube-face p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+
+        .cube-face.front {
+            transform: translateZ(140px);
+        }
+
+        .cube-face.back {
+            transform: rotateY(180deg) translateZ(140px);
+        }
+
+        .cube-face.right {
+            transform: rotateY(90deg) translateZ(140px);
+        }
+
+        .cube-face.left {
+            transform: rotateY(-90deg) translateZ(140px);
+        }
+
+        .cube-face.top {
+            transform: rotateX(90deg) translateZ(140px);
+        }
+
+        .cube-face.bottom {
+            transform: rotateX(-90deg) translateZ(140px);
+        }
+
+        @keyframes rotateCube {
+            0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 30px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid #3a4151;
+        }
+
+        /* Project styling */
+        .project-item {
+            margin-bottom: 25px;
+        }
+
+        .project-item ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .project-item li {
+            margin-bottom: 8px;
+            color: #e2e8f0;
+        }
+
+        /* Learning Platforms Section */
+        .platforms-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .platform {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(45, 55, 72, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .platform:hover {
+            background: rgba(66, 153, 225, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .platform-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #9f7aea;
+        }
+
+        .platform-name {
+            font-size: 0.9rem;
+            text-align: center;
+            color: #e2e8f0;
+        }
+
+        .platform-link {
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+        }
+
+        /* Job Search Section */
+        .job-search-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .job-site {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(45, 55, 72, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .job-site:hover {
+            background: rgba(72, 187, 120, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .job-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #48bb78;
+        }
+
+        .job-name {
+            font-size: 0.9rem;
+            text-align: center;
+            color: #e2e8f0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .cube-container {
+                width: 240px;
+                height: 240px;
+            }
+            .cube-face {
+                width: 240px;
+                height: 240px;
+            }
+            .cube-face.front {
+                transform: translateZ(120px);
+            }
+            .cube-face.back {
+                transform: rotateY(180deg) translateZ(120px);
+            }
+            .cube-face.right {
+                transform: rotateY(90deg) translateZ(120px);
+            }
+            .cube-face.left {
+                transform: rotateY(-90deg) translateZ(120px);
+            }
+            .cube-face.top {
+                transform: rotateX(90deg) translateZ(120px);
+            }
+            .cube-face.bottom {
+                transform: rotateX(-90deg) translateZ(120px);
+            }
+            .platforms-container, .job-search-container {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>KOMMISETTY BHARGAVI</h1>
+            <div class="subtitle">Full stack web development</div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>9347843499</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:bhargavi.tech05@gmail.com">bhargavi.tech05@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                     <a href="https://www.linkedin.com/in/kommisetty-bhargavi-81118a24b/">https://www.linkedin.com/in/kommisetty-bhargavi-81118a24b/</a>
+                </div>
+               
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Yadamvaripalli(V), Chinnagottigallu(M), Chittoor(D)</span>
+                </div>
+                 
+            </div>
+            <br>
+            
+            
+            <!-- 3D Cube Element -->
+            <div class="cube-container">
+                <div class="cube">
+                   <div class="cube-face front" style="position: absolute; width: 280px; height: 280px; background: rgba(26, 32, 44, 0.9); border: 2px solid rgba(139, 92, 246, 0.5); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-shadow: inset 0 0 30px rgba(139, 92, 246, 0.2), 0 0 20px rgba(139, 92, 246, 0.3); border-radius: 10px; backdrop-filter: blur(5px); text-align: center; transform: translateZ(140px);">
+    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #8b5cf6; text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);">
+        <i class="fas fa-code"></i> Programming Skills
+    </h3>
+    <div style="margin: 8px 0;">
+        <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="24" style="filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.5));"> Java
+            <span style="color: #8b5cf6;">•</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="24" style="filter: grayscale(80%) brightness(1.5);"> JDBC
+            <span style="color: #8b5cf6;">•</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="24" style="filter: grayscale(80%) brightness(1.5);"> JEE
+        </p>
+    </div>
+    <div style="margin: 8px 0;">
+        <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="24" style="filter: grayscale(80%) brightness(1.5);"> JSP
+            <span style="color: #8b5cf6;">•</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="24"> Python
+            <span style="color: #8b5cf6;">•</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="24"> Node.js
+        </p>
+    </div>
+    <div style="margin: 8px 0;">
+        <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <i class="fas fa-globe" style="color: #8b5cf6;"></i> Web Development
+        </p>
+    </div>
+</div>
+
+<div class="cube-face back" style="position: absolute; width: 280px; height: 280px; background: rgba(26, 32, 44, 0.9); border: 2px solid rgba(6, 182, 212, 0.5); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-shadow: inset 0 0 30px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.3); border-radius: 10px; backdrop-filter: blur(5px); text-align: center; transform: rotateY(180deg) translateZ(140px);">
+    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #06b6d4; text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);">
+        <i class="fas fa-cogs"></i> Technical Skills
+    </h3>
+    <div style="margin: 8px 0;">
+        <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="24"> HTML
+            <span style="color: #06b6d4;">•</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="24"> CSS
+            <span style="color: #06b6d4;">•</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="24"> JavaScript
+        </p>
+    </div>
+    <div style="margin: 8px 0;">
+        <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="24"> SQL
+            <span style="color: #06b6d4;">•</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="24"> Git
+            <span style="color: #06b6d4;">•</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" width="24" style="filter: grayscale(80%) brightness(1.5);"> Maven
+        </p>
+    </div>
+    <div style="margin: 8px 0;">
+        <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="24"> Linux
+            <span style="color: #06b6d4;">•</span>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" width="24"> Windows
+        </p>
+    </div>
+</div>
+        <div class="cube-face right" style="position: absolute; width: 280px; height: 280px; background: rgba(26, 32, 44, 0.9); border: 2px solid rgba(16, 185, 129, 0.5); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-shadow: inset 0 0 30px rgba(16, 185, 129, 0.2), 0 0 20px rgba(16, 185, 129, 0.3); border-radius: 10px; backdrop-filter: blur(5px); text-align: center; transform: rotateY(90deg) translateZ(140px);">
+    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #10b981; text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);">Soft Skills</h3>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-comments" style="color: #10b981;"></i> Communication
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-lightbulb" style="color: #10b981;"></i> Problem Solving
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-clock" style="color: #10b981;"></i> Time Management
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-handshake" style="color: #10b981;"></i> Work Ethic
+    </p>
+</div>
+
+<div class="cube-face left" style="position: absolute; width: 280px; height: 280px; background: rgba(26, 32, 44, 0.9); border: 2px solid rgba(59, 130, 246, 0.5); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-shadow: inset 0 0 30px rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.3); border-radius: 10px; backdrop-filter: blur(5px); text-align: center; transform: rotateY(-90deg) translateZ(140px);">
+    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #3b82f6; text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);">Education</h3>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-graduation-cap" style="color: #3b82f6;"></i> B.Tech (ECE)
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-star" style="color: #3b82f6;"></i> CGPA: 7.53
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px; text-align: center;">
+        <i class="fas fa-university" style="color: #3b82f6;"></i> Sri Venkateswara College of Engineering
+    </p>
+</div>
+
+<div class="cube-face top" style="position: absolute; width: 280px; height: 280px; background: rgba(26, 32, 44, 0.9); border: 2px solid rgba(234, 88, 12, 0.5); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-shadow: inset 0 0 30px rgba(234, 88, 12, 0.2), 0 0 20px rgba(234, 88, 12, 0.3); border-radius: 10px; backdrop-filter: blur(5px); text-align: center; transform: rotateX(90deg) translateZ(140px);">
+    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #ea580c; text-shadow: 0 0 10px rgba(234, 88, 12, 0.3);">Projects</h3>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-utensils" style="color: #ea580c;"></i> Food Delivery
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-code" style="color: #ea580c;"></i> Web Development
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-server" style="color: #ea580c;"></i> Backend Logic
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-project-diagram" style="color: #ea580c;"></i> API Development
+    </p>
+</div>
+
+<div class="cube-face bottom" style="position: absolute; width: 280px; height: 280px; background: rgba(26, 32, 44, 0.9); border: 2px solid rgba(219, 39, 119, 0.5); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-shadow: inset 0 0 30px rgba(219, 39, 119, 0.2), 0 0 20px rgba(219, 39, 119, 0.3); border-radius: 10px; backdrop-filter: blur(5px); text-align: center; transform: rotateX(-90deg) translateZ(140px);">
+    <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #db2777; text-shadow: 0 0 10px rgba(219, 39, 119, 0.3);">Interests</h3>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-microchip" style="color: #db2777;"></i> New Technologies
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-puzzle-piece" style="color: #db2777;"></i> Solving Puzzles
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-music" style="color: #db2777;"></i> Listening to Music
+    </p>
+    <p style="margin: 8px 0; font-size: 1rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
+        <i class="fas fa-hands-helping" style="color: #db2777;"></i> Volunteering
+    </p>
+</div>
+            </div>
+        </header>
+
+        <div class="profile">
+            <h2>Description</h2>
+            <p>Looking for an entry-level position in a dynamic firm that values my analytical and technical skills and provides scope for updating my knowledge. I seek a company that will help me contribute to its development while concurrently aiding my personal and professional growth.</p>
+        </div>
+
+        <div class="main-content">
+            <div class="left-column">
+                <div class="card">
+                    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                    
+                    <div class="education-item">
+                        <h3>B.Tech in Electronics & Communication Engineering</h3>
+                        <div class="date">Sri Venkateswara College of Engineering and Technology | 2019-2023</div>
+                        <p>CGPA: 7.53</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <h3>Intermediate (M.P.C)</h3>
+                        <div class="date">Government Junior College | 2017-2019</div>
+                        <p>CGPA: 9.09</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <h3>Secondary Education (10th)</h3>
+                        <div class="date">Sree Vidyanikethan High School | 2016-2017</div>
+                        <p>CGPA: 7.0</p>
+                    </div>
+                </div>
+                <br>
+                  
+                <div class="card" style="background: rgba(26, 32, 44, 0.7); border-radius: 15px; padding: 25px; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border: 1px solid rgba(159, 122, 234, 0.3); transition: all 0.3s ease;">
+    <h2 style="font-family: 'Montserrat', sans-serif; color: #9f7aea; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #3a4151; font-size: 1.8rem; display: flex; align-items: center; gap: 10px;">
+        <i class="fas fa-laptop-code" style="font-size: 1.5rem;"></i> Technical Skills
+    </h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px;">
+        <!-- Row 1 -->
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="20" height="20"> Java
+        </div>
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-database" style="color: #9f7aea;"></i> JDBC
+        </div>
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-server" style="color: #9f7aea;"></i> JEE
+        </div>
+        
+        <!-- Row 2 -->
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-window-maximize" style="color: #9f7aea;"></i> JSP
+        </div>
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="20" height="20"> Python
+        </div>
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="20" height="20"> HTML
+        </div>
+        
+        <!-- Row 3 -->
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="20" height="20"> CSS
+        </div>
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="20" height="20"> JavaScript
+        </div>
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="20" height="20"> SQL
+        </div>
+        
+        <!-- Row 4 -->
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" width="20" height="20"> Windows
+        </div>
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="20" height="20"> Linux
+        </div>
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="20" height="20"> Git
+        </div>
+        
+        <!-- Row 5 -->
+        <div style="background: rgba(159, 122, 234, 0.15); border: 1px solid rgba(159, 122, 234, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" width="20" height="20" style="filter: grayscale(80%) brightness(1.5);"> Maven
+        </div>
+    </div>
+</div>
+
+<div class="card" style="background: rgba(26, 32, 44, 0.7); border-radius: 15px; padding: 25px; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border: 1px solid rgba(16, 185, 129, 0.3); transition: all 0.3s ease; margin-top: 20px;">
+    <h2 style="font-family: 'Montserrat', sans-serif; color: #10b981; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #3a4151; font-size: 1.8rem; display: flex; align-items: center; gap: 10px;">
+        <i class="fas fa-brain" style="font-size: 1.5rem;"></i> Soft Skills
+    </h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px;">
+        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-comments" style="color: #10b981;"></i> Communication
+        </div>
+        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-lightbulb" style="color: #10b981;"></i> Problem Solving
+        </div>
+        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-clock" style="color: #10b981;"></i> Time Management
+        </div>
+        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-handshake" style="color: #10b981;"></i> Work Ethic
+        </div>
+        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-brain" style="color: #10b981;"></i> Analytical Thinking
+        </div>
+        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-users" style="color: #10b981;"></i> Team Collaboration
+        </div>
+    </div>
+</div>
+
+<div class="card" style="background: rgba(26, 32, 44, 0.7); border-radius: 15px; padding: 25px; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border: 1px solid rgba(96, 165, 250, 0.3); transition: all 0.3s ease; margin-top: 20px;">
+    <h2 style="font-family: 'Montserrat', sans-serif; color:#60a5fa; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #3a4151; font-size: 1.8rem; display: flex; align-items: center; gap: 10px;">
+        <i class="fas fa-heart" style="font-size: 1.5rem;"></i> Hobbies & Interests
+    </h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px;">
+        <div style="background: rgba(96, 165, 250, 0.15); border: 1px solid rgba(96, 165, 250, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-microchip" style="color: #60a5fa;"></i> Learning New Technologies
+        </div>
+        <div style="background: rgba(96, 165, 250, 0.15); border: 1px solid rgba(96, 165, 250, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-puzzle-piece" style="color: #60a5fa;"></i> Solving Puzzles
+        </div>
+        <div style="background: rgba(96, 165, 250, 0.15); border: 1px solid rgba(96, 165, 250, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-music" style="color: #60a5fa;"></i> Listening to Music
+        </div>
+        <div style="background: rgba(96, 165, 250, 0.15); border: 1px solid rgba(96, 165, 250, 0.3); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+            <i class="fas fa-hands-helping" style="color: #60a5fa;"></i> Volunteering
+        </div>
+  
+    </div>
+</div>
+<br>
+                <div class="card">
+                    <h2><i class="fas fa-robot"></i> AI Learning Platforms</h2>
+                    <div class="platforms-container">
+                        <a href="https://www.deepseek.com" target="_blank" class="platform-link">
+                            <div class="platform">
+                                <div class="platform-icon"><i class="fas fa-robot"></i></div>
+                                <div class="platform-name">DeepSeek</div>
+                            </div>
+                        </a>
+                        <a href="https://openai.com/chatgpt" target="_blank" class="platform-link">
+                            <div class="platform">
+                                <div class="platform-icon"><i class="fas fa-comment-dots"></i></div>
+                                <div class="platform-name">ChatGPT</div>
+                            </div>
+                        </a>
+                        <a href="https://www.udemy.com" target="_blank" class="platform-link">
+                            <div class="platform">
+                                <div class="platform-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div class="platform-name">Udemy</div>
+                            </div>
+                        </a>
+                        <a href="https://www.coursera.org" target="_blank" class="platform-link">
+                            <div class="platform">
+                                <div class="platform-icon"><i class="fas fa-university"></i></div>
+                                <div class="platform-name">Coursera</div>
+                            </div>
+                        </a>
+                        <a href="https://leetcode.com" target="_blank" class="platform-link">
+                            <div class="platform">
+                                <div class="platform-icon"><i class="fas fa-code"></i></div>
+                                <div class="platform-name">LeetCode</div>
+                            </div>
+                        </a>
+                        <a href="https://www.hackerrank.com" target="_blank" class="platform-link">
+                            <div class="platform">
+                                <div class="platform-icon"><i class="fas fa-laptop-code"></i></div>
+                                <div class="platform-name">HackerRank</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="card">
+                    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+                    
+                    <div class="project-item">
+                        <h3>Food Delivery Web Site Development</h3>
+                        <ul>
+                            <li>Designed and implemented backend logic for routing and delivery management</li>
+                            <li>Connected the application to MySQL database to store and retrieve order and delivery data</li>
+                            <li>Developed APIs for seamless integration between front-end and backend components</li>
+                            <li>Maintained payment processing functionality</li>
+                        </ul>
+                        <h3>Vehicle number plate recogination System</h3>
+                        <ul>
+                            <li>1.Developed an Automatic Vehicle License Plate Recognition system using OpenCV to detect and process number plates in real-time for parking management.</li>
+
+                            <li>2.Implemented an embedded system integrating hardware (microcontroller) and software to automate license plate recognition and slot allocation.</li>
+
+                            <li>3.Designed and optimized software for embedded systems, ensuring efficient memory usage, processor speed handling, and low power dissipation.</li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                
+                <div class="card">
+                    <h2><i class="fas fa-certificate"></i> Certifications</h2>
+                     <div class="cert-item">
+                        <h3>Software Development Intern</h3>
+                        <div class="date">cognifyz</div>
+                    </div>
+                    <div class="cert-item">
+                        <h3>Java Full Stack Web Development</h3>
+                        <div class="date">Tap Academy</div>
+                    </div>
+                    <div class="cert-item">
+                        <h3>Web Development</h3>
+                        <div class="date">Coursera</div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <h2><i class="fas fa-briefcase"></i> Job Search Platforms</h2>
+                    <div class="job-search-container">
+                        <a href="https://www.naukri.com" target="_blank" class="platform-link">
+                            <div class="job-site">
+                                <div class="job-icon"><i class="fas fa-search-dollar"></i></div>
+                                <div class="job-name">Naukri</div>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/jobs" target="_blank" class="platform-link">
+                            <div class="job-site">
+                                <div class="job-icon"><i class="fab fa-linkedin"></i></div>
+                                <div class="job-name">LinkedIn Jobs</div>
+                            </div>
+                        </a>
+                        <a href="https://www.foundit.in" target="_blank" class="platform-link">
+                            <div class="job-site">
+                                <div class="job-icon"><i class="fas fa-bullseye"></i></div>
+                                <div class="job-name">FoundIt</div>
+                            </div>
+                        </a>
+                        <a href="https://www.indeed.com" target="_blank" class="platform-link">
+                            <div class="job-site">
+                                <div class="job-icon"><i class="fas fa-globe"></i></div>
+                                <div class="job-name">Indeed</div>
+                            </div>
+                        </a>
+                        <a href="https://www.hirist.com" target="_blank" class="platform-link">
+                            <div class="job-site">
+                                <div class="job-icon"><i class="fas fa-user-tie"></i></div>
+                                <div class="job-name">Hirist</div>
+                            </div>
+                        </a>
+                        <a href="https://angel.co/jobs" target="_blank" class="platform-link">
+                            <div class="job-site">
+                                <div class="job-icon"><i class="fas fa-angellist"></i></div>
+                                <div class="job-name">AngelList</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <br>
+                
+                <div class="card">
+                    <h2><i class="fas fa-trophy"></i> Career Objective</h2>
+                    <div class="profile" style="margin: 0; padding: 15px;">
+                        <p style="text-align: left; font-size: 1rem;">Seeking an entry-level position where I can utilize my technical skills and passion for learning to contribute to organizational growth while developing professionally in a dynamic and challenging environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+        <footer>
+            <p>© 2023 Kommisetty Bhargavi | Electronics & Communication Engineer</p>
+            <p>Designed with and modern web technologies</p>
+        </footer>
+    </div>
+</body>
+</html>
